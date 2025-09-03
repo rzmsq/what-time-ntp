@@ -17,15 +17,8 @@ type defaultFormatter struct {
 	layout string // шаблон форматирования времени
 }
 
-// NewDefaultFormatter создает форматтер с RFC3339 форматом по умолчанию.
-func NewDefaultFormatter() TimeFormatter {
-	return &defaultFormatter{
-		layout: time.RFC3339,
-	}
-}
-
-// NewCustomFormatter создает форматтер с пользовательским форматом.
-func NewCustomFormatter(layout string) TimeFormatter {
+// NewFormatter создает форматтер с переданным форматом.
+func NewFormatter(layout string) TimeFormatter {
 	return &defaultFormatter{
 		layout: layout,
 	}

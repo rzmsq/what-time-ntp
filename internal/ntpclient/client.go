@@ -11,10 +11,10 @@ import (
 // Переменные ошибок для операций NTP клиента.
 var (
 	// ErrConnection возникает при неудачном подключении к NTP серверу.
-	ErrConnection = errors.New("failed to connect to NTP server")
+	ErrConnection = errors.New("failed to connect to NTP server\n")
 
 	// ErrInvalidResponse возникает при получении некорректного ответа от сервера.
-	ErrInvalidResponse = errors.New("invalid response from NTP server")
+	ErrInvalidResponse = errors.New("invalid response from NTP server\n")
 )
 
 // NTPClient интерфейс для получения времени с NTP сервера.
