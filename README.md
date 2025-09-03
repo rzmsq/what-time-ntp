@@ -138,9 +138,6 @@ what-time-ntp/
 ├── go.sum                     # Dependency checksums
 ├── Makefile                   # Build automation
 ├── .golangci.yml             # Linter configuration
-├── .github/
-│   └── workflows/
-│       └── ci.yml            # GitHub Actions CI/CD
 └── internal/
     ├── config/
     │   ├── config.go         # Configuration management
