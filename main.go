@@ -15,6 +15,7 @@ func main() {
 	runApp()
 }
 
+// Основная логика приложения
 func runApp() {
 	cfg := config.NewConfig()
 
