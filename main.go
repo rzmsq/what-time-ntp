@@ -12,15 +12,8 @@ const (
 )
 
 func main() {
-	runApp()
-}
 
-// Основная логика приложения
-func runApp() {
-	cfg := config.NewConfig()
-
-	ntpClient := ntpclient.NewNTPClient(cfg.NTPServer)
-	currentTime, err := ntpClient.GetTime()
+	err := runApp()
 	if err != nil {
 		_, err = os.Stderr.WriteString(err.Error())
 		if err != nil {
@@ -28,7 +21,19 @@ func runApp() {
 		}
 		os.Exit(errorCon)
 	}
+}
+
+// Основная логика приложения
+func runApp() error {
+	cfg := config.NewConfig()
+
+	ntpClient := ntpclient.NewNTPClient(cfg.NTPServer)
+	currentTime, err := ntpClient.GetTime()
+	if err != nil {
+		return err
+	}
 
 	formatter := timeformatter.NewFormatter(cfg.TimeFormat)
 	println(formatter.Format(currentTime))
+	return nil
 }
